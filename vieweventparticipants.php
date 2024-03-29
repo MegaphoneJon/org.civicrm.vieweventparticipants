@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vieweventparticipants.civix.php';
+use CRM_Vieweventparticipants_ExtensionUtil as E;
 
 /**
  * Implements hook_civicrm_config().
@@ -50,15 +51,15 @@ function vieweventparticipants_civicrm_enable() {
  * @link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_permission/
  */
 function vieweventparticipants_civicrm_permission(&$permissions) {
-  $permissions['view my event participants'] = array(
-    ts('CiviEvent: view my event participants', array('domain' => 'org.civicrm.vieweventparticipants')),
-    ts('Grants event creators permission to view their event\'s participants', array('domain' => 'org.civicrm.vieweventparticipants')),
-  );
+  $permissions['view my event participants'] = [
+    'label' => E::ts('CiviEvent: view my event participants'),
+    'description' => E::ts('Grants event creators permission to view their event\'s participants'),
+  ];
 
-  $permissions['edit my event participants'] = array(
-    ts('CiviEvent: edit my event participants', array('domain' => 'org.civicrm.vieweventparticipants')),
-    ts('Grants event creators permission to edit their event\'s participants', array('domain' => 'org.civicrm.vieweventparticipants')),
-  );
+  $permissions['edit my event participants'] = [
+    'label' => E::ts('CiviEvent: edit my event participants'),
+    'description' => E::ts('Grants event creators permission to edit their event\'s participants'),
+  ];
 }
 
 /**
